@@ -1,4 +1,4 @@
-package com.github.mgt6.weatherstation;
+package com.github.mgt6.weatherstation.controller;
 
 import com.github.mgt6.weatherstation.dto.SensorDto;
 import org.springframework.stereotype.Controller;
