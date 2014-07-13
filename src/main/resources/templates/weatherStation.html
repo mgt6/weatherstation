@@ -38,6 +38,18 @@
     </div>
 </div>
 
+<br/>
+<br/>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4" th:each="sensor : ${sensors}">
+            <h2><p th:text="${sensor.name}" /></h2>
+        </div>
+    </div>
+</div>
+
 
 <hr/>
 
