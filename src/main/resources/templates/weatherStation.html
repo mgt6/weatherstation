@@ -46,6 +46,7 @@
     <div class="row">
         <div class="col-md-4" th:each="sensor : ${sensors}">
             <h2><p th:text="${sensor.name}" /></h2>
+            <p th:text="${sensor.description}" />
         </div>
     </div>
 </div>

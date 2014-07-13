@@ -6,9 +6,12 @@ public class SensorDto {
 
     public String name;
 
-    public SensorDto(String id, String name) {
+    public String description;
+
+    public SensorDto(String id, String name, String description) {
         this.id = id;
         this.name = name;
+        this.description = description;
     }
 
     @Override
