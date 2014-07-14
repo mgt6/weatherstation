@@ -55,7 +55,10 @@ public class EvrythngSensorRepository implements SensorRepository {
         Optional<Thng> thng = Optional.empty();
 
         try {
-            thng = Optional.of(thngService.thngReader(sensorId).execute());
+            Thng result = thngService.thngReader(sensorId).execute();
+            if(result != null) {
+                thng = Optional.of(result);
+            }
         } catch (EvrythngException e) {
             LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
         }
