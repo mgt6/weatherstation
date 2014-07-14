@@ -39,3 +39,7 @@ Provide a list of results of a sensor in a table
 Add more unit tests
 Misc Refactors
 Java Doc
+
+####Nice To Have
+Search for highest/lowest reading
+Include the header/footer into each page
