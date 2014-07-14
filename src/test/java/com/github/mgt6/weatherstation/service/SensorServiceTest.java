@@ -74,4 +74,20 @@ public class SensorServiceTest {
         sensorService.getLatestSensorReading("1");
     }
 
+    @Test
+    public void testGetSensor() {
+        when(sensorRepository.getSensor("1")).thenReturn(Optional.of(MockThngBuilder.getThng()));
+        SensorDto sensorDto = sensorService.getSensor("1");
+
+        assertThat(sensorDto.id, is("1"));
+        assertThat(sensorDto.name, is("Mock"));
+        assertThat(sensorDto.description, is("Mock Thng"));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void testGetSensorNull() {
+        when(sensorRepository.getSensor("1")).thenReturn(Optional.<Thng>empty());
+        SensorDto sensorDto = sensorService.getSensor("1");
+    }
+
 }
