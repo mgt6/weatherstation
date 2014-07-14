@@ -4,6 +4,7 @@ import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
 import com.github.mgt6.weatherstation.dto.SensorReadingDto;
+import com.github.mgt6.weatherstation.exception.ResourceNotFoundException;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
@@ -36,7 +37,7 @@ public class SensorService {
             Thng result = thng.get();
             return new SensorDto(result.getId(), result.getName(), result.getDescription());
         }
-        return null;
+        throw new ResourceNotFoundException();
     }
 
     public SensorReadingDto getLatestSensorReading(String sensorId) {
@@ -51,7 +52,7 @@ public class SensorService {
                 return new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId());
             }
         }
-        return null;
+        throw new ResourceNotFoundException();
     }
 
     @Required
