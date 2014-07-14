@@ -1,8 +1,10 @@
 package com.github.mgt6.weatherstation.service;
 
+import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
 import com.github.mgt6.weatherstation.dto.SensorReadingDto;
+import com.github.mgt6.weatherstation.exception.ResourceNotFoundException;
 import com.github.mgt6.weatherstation.mock.MockPropertyBuilder;
 import com.github.mgt6.weatherstation.mock.MockThngBuilder;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
@@ -63,6 +65,13 @@ public class SensorServiceTest {
         assertThat(sensorReading.getValue(), is("0.00"));
         assertThat(sensorReading.getSensorId(), is("1"));
         assertThat(sensorReading.getId(), is("2"));
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void testGetLatestResultsNotFound() {
+        when(sensorRepository.getLatestPropertyReading("1", "type")).thenReturn(Optional.of(MockPropertyBuilder.getMockProperty()));
+        when(sensorRepository.getLatestPropertyReading("1", "mock")).thenReturn(Optional.<Property>empty());
+        sensorService.getLatestSensorReading("1");
     }
 
 }
