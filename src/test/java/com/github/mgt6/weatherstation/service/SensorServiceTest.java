@@ -55,13 +55,14 @@ public class SensorServiceTest {
     @Test
     public void testGetLatestReading() throws Exception {
         when(sensorRepository.getLatestPropertyReading("1", "type")).thenReturn(Optional.of(MockPropertyBuilder.getMockProperty()));
+        when(sensorRepository.getLatestPropertyReading("1", "mock")).thenReturn(Optional.of(MockPropertyBuilder.getMockPropertyReading()));
         SensorReadingDto sensorReading = sensorService.getLatestSensorReading("1");
 
         assertNotNull(sensorReading);
-        assertThat(sensorReading.getKey(), is("type"));
-        assertThat(sensorReading.getValue(), is("mock"));
+        assertThat(sensorReading.getKey(), is("mock"));
+        assertThat(sensorReading.getValue(), is("0.00"));
         assertThat(sensorReading.getSensorId(), is("1"));
-        assertThat(sensorReading.getId(), is("1"));
+        assertThat(sensorReading.getId(), is("2"));
     }
 
 }

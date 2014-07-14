@@ -1,5 +1,6 @@
 package com.github.mgt6.weatherstation.service;
 
+import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
 import com.github.mgt6.weatherstation.dto.SensorReadingDto;
@@ -15,6 +16,8 @@ public class SensorService {
 
     @Autowired
     private SensorRepository sensorRepository;
+
+    private static final String READING_TYPE_FIELD = "type";
 
     public List<SensorDto> getSensors() {
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
@@ -33,6 +36,17 @@ public class SensorService {
     }
 
     public SensorReadingDto getLatestSensorReading(String sensorId) {
+        Optional<Property> typeField = sensorRepository.getLatestPropertyReading(sensorId, READING_TYPE_FIELD);
+        if(typeField.isPresent()) {
+            Property typeFieldResult = typeField.get();
+            String typeFieldValue = typeFieldResult.getValue();
+            Optional<Property> readingField = sensorRepository.getLatestPropertyReading(sensorId, typeFieldValue);
+
+            if(readingField.isPresent()) {
+                Property reading = readingField.get();
+                return new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId());
+            }
+        }
         return null;
     }
 }

@@ -12,4 +12,12 @@ public class MockPropertyBuilder {
         property.setValue("mock");
         return property;
     }
+
+    public static Property getMockPropertyReading() {
+        Property property = new Property();
+        property.setId("2");
+        property.setKey("mock");
+        property.setValue("0.00");
+        return property;
+    }
 }
