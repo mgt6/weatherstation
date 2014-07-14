@@ -4,6 +4,7 @@ import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,5 +24,10 @@ public class SensorService {
             }
         }
         return sensors;
+    }
+
+    @Required
+    public void setSensorRepository(SensorRepository sensorRepository) {
+        this.sensorRepository = sensorRepository;
     }
 }
