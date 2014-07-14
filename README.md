@@ -35,11 +35,11 @@ As a user I want to view the latest reading from an individual sensor in real ti
 Deferred
  
 ####To Do
-Provide a list of results of a sensor in a table
-Add more unit tests
-Misc Refactors
-Java Doc
++ Provide a list of results of a sensor in a table
++ Add more unit tests
++ Misc Refactors
++ Java Doc
 
 ####Nice To Have
-Search for highest/lowest reading
-Include the header/footer into each page
++ Search for highest/lowest reading
++ Include the header/footer into each page
