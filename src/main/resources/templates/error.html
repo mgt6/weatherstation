@@ -1,0 +1,62 @@
+<!-- Example row of columns -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Weather Station Application"/>
+    <meta name="author" content="Mark Taylor"/>
+    <title>Weather Station</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/weatherstation.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Weather Station</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" role="form" th:action="@{/logout}" method="post">
+
+                <button type="submit" class="btn btn-success">Logout</button>
+            </form>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="container">
+    <h2>An Error has occurred</h2>
+    <p th:text="${error}" />
+    <hr/>
+
+    <footer>
+        <p>&copy; Mark Taylor 2014</p>
+    </footer>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/weatherstation.js"></script>
+</body>
+</html>
