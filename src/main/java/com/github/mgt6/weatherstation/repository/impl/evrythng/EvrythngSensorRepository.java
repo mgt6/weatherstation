@@ -45,7 +45,7 @@ public class EvrythngSensorRepository implements SensorRepository {
                 property = Optional.of(properties.get(0));
             }
         } catch (EvrythngException e) {
-            e.printStackTrace();
+            LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
         }
         return property;
     }
@@ -57,7 +57,7 @@ public class EvrythngSensorRepository implements SensorRepository {
         try {
             thng = Optional.of(thngService.thngReader(sensorId).execute());
         } catch (EvrythngException e) {
-            e.printStackTrace();
+            LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
         }
         return thng;
 
