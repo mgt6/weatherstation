@@ -49,4 +49,9 @@ public class EvrythngSensorRepository implements SensorRepository {
         }
         return property;
     }
+
+    @Override
+    public Optional<Thng> getSensor(String sensorId) {
+        return null;
+    }
 }

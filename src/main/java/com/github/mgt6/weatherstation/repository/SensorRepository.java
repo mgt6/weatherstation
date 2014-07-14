@@ -24,4 +24,12 @@ public interface SensorRepository {
      * @return An optional value which contain a {@link Property} for that {@link Thng} or it will be empty.
      */
     Optional<Property> getLatestPropertyReading(String thngId, String propertyName);
+
+    /**
+     * Method to get a single sensor identified by its Id.
+     *
+     * @param sensorId The id of the sensor to get.
+     * @return An Optional containing the {@link Thng} if it is found or it will be empty
+     */
+    Optional<Thng> getSensor(String sensorId);
 }

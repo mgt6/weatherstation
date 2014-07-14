@@ -1,6 +1,5 @@
 package com.github.mgt6.weatherstation.controller;
 
-import com.github.mgt6.weatherstation.dto.SensorDto;
 import com.github.mgt6.weatherstation.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class WeatherStationController {
 
     @RequestMapping("/sensor/{id}")
     public String reading(@PathVariable String id, String name, Model model) {
-        model.addAttribute("sensor", new SensorDto(id, "Test", "This is a test"));
+        model.addAttribute("sensor", sensorService.getSensor(id));
         model.addAttribute("reading", sensorService.getLatestSensorReading(id));
         return "sensor";
     }

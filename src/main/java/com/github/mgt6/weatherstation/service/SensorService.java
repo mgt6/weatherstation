@@ -30,9 +30,13 @@ public class SensorService {
         return sensors;
     }
 
-    @Required
-    public void setSensorRepository(SensorRepository sensorRepository) {
-        this.sensorRepository = sensorRepository;
+    public SensorDto getSensor(String id) {
+        Optional<Thng> thng = sensorRepository.getSensor(id);
+        if(thng.isPresent()) {
+            Thng result = thng.get();
+            return new SensorDto(result.getId(), result.getName(), result.getDescription());
+        }
+        return null;
     }
 
     public SensorReadingDto getLatestSensorReading(String sensorId) {
@@ -48,5 +52,10 @@ public class SensorService {
             }
         }
         return null;
+    }
+
+    @Required
+    public void setSensorRepository(SensorRepository sensorRepository) {
+        this.sensorRepository = sensorRepository;
     }
 }
