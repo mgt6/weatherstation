@@ -1,5 +1,6 @@
 package com.github.mgt6.weatherstation.repository;
 
+import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
 
 import java.util.List;
@@ -10,8 +11,17 @@ public interface SensorRepository {
     /**
      * Method to get all of the registered sensors for this application.
      *
-     * @return An optional list of things that will contain either a populated {@link java.util.List List} of
-     * {@link com.evrythng.thng.resource.model.store.Thng Thngs} or it will be empty.
+     * @return An optional list of things that will contain either a populated {@link List} of {@link Thng Thngs}
+     * or it will be empty.
      */
     Optional<List<Thng>> getSensors();
+
+    /**
+     * Method to get the latest reading of an individual property of a thng.
+     *
+     * @param thngId The id of the {@link Thng} that contains the property.
+     * @param propertyName The name of {@link Property} to get the reading from.
+     * @return An optional value which contain a {@link Property} for that {@link Thng} or it will be empty.
+     */
+    Optional<Property> getLatestPropertyReading(String thngId, String propertyName);
 }

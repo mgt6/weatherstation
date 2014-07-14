@@ -1,5 +1,6 @@
 package com.github.mgt6.weatherstation.repository.impl.mock;
 
+import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.domain.ThngBuilder;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
@@ -32,6 +33,11 @@ public class MockSensorRepository implements SensorRepository {
                 .withProperty("temperature", "22.1")
                 .build());
         return Optional.of(thngs);
+    }
+
+    @Override
+    public Optional<Property> getLatestPropertyReading(String thngId, String propertyName) {
+        return null;
     }
 
 }

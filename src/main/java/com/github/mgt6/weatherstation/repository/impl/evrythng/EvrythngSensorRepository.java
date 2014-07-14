@@ -36,20 +36,17 @@ public class EvrythngSensorRepository implements SensorRepository {
         return results;
     }
 
-    public Optional<Property> getProperty(String id) {
-        Optional<Property> results = Optional.empty();
+    @Override
+    public Optional<Property> getLatestPropertyReading(String thngId, String propertyName) {
+        Optional<Property> property = Optional.empty();
         try {
-            List<Property> type = thngService.propertyReader(id, "type").list().getResult();
-            if(type != null && !type.isEmpty()) {
-                String sensorType = type.iterator().next().getValue();
-                List<Property> properties = thngService.propertyReader(id, sensorType).list().getResult();
-                if(properties != null && !properties.isEmpty()) {
-                    results = Optional.of(properties.iterator().next());
-                }
+            List<Property> properties = thngService.propertyReader(thngId, propertyName).execute();
+            if(properties != null && ! properties.isEmpty()) {
+                property = Optional.of(properties.get(0));
             }
         } catch (EvrythngException e) {
-            LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
+            e.printStackTrace();
         }
-        return results;
+        return property;
     }
 }
