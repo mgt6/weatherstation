@@ -2,6 +2,7 @@ package com.github.mgt6.weatherstation.service;
 
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
+import com.github.mgt6.weatherstation.dto.SensorReadingDto;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
@@ -29,5 +30,9 @@ public class SensorService {
     @Required
     public void setSensorRepository(SensorRepository sensorRepository) {
         this.sensorRepository = sensorRepository;
+    }
+
+    public SensorReadingDto getLatestSensorReading(String sensorId) {
+        return null;
     }
 }

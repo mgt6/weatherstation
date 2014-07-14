@@ -2,6 +2,8 @@ package com.github.mgt6.weatherstation.service;
 
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
+import com.github.mgt6.weatherstation.dto.SensorReadingDto;
+import com.github.mgt6.weatherstation.mock.MockPropertyBuilder;
 import com.github.mgt6.weatherstation.mock.MockThngBuilder;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.junit.Before;
@@ -12,6 +14,7 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -47,6 +50,18 @@ public class SensorServiceTest {
         when(sensorRepository.getSensors()).thenReturn(Optional.<List<Thng>>empty());
         List<SensorDto> sensors = sensorService.getSensors();
         assertTrue(sensors.isEmpty());
+    }
+
+    @Test
+    public void testGetLatestReading() throws Exception {
+        when(sensorRepository.getLatestPropertyReading("1", "type")).thenReturn(Optional.of(MockPropertyBuilder.getMockProperty()));
+        SensorReadingDto sensorReading = sensorService.getLatestSensorReading("1");
+
+        assertNotNull(sensorReading);
+        assertThat(sensorReading.getKey(), is("type"));
+        assertThat(sensorReading.getValue(), is("mock"));
+        assertThat(sensorReading.getSensorId(), is("1"));
+        assertThat(sensorReading.getId(), is("1"));
     }
 
 }
