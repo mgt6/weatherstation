@@ -1,10 +1,11 @@
-package com.github.mgt6.weatherstation.repository;
+package com.github.mgt6.weatherstation.repository.impl;
 
 import com.evrythng.java.wrapper.ApiManager;
 import com.evrythng.java.wrapper.exception.EvrythngException;
 import com.evrythng.java.wrapper.service.ThngService;
 import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
+import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class EvrythngSensorRepository {
+public class EvrythngSensorRepository implements SensorRepository {
 
     Logger LOGGER = LoggerFactory.getLogger(EvrythngSensorRepository.class);
 
@@ -47,5 +48,9 @@ public class EvrythngSensorRepository {
             LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
         }
         return results;
+    }
+
+    public void setApi(ApiManager api) {
+        this.api = api;
     }
 }
