@@ -17,11 +17,9 @@ public class EvrythngSensorRepository implements SensorRepository {
 
     Logger LOGGER = LoggerFactory.getLogger(EvrythngSensorRepository.class);
 
-    private ApiManager api;
     private ThngService thngService;
 
     public EvrythngSensorRepository(ApiManager api) {
-        this.api = api;
         thngService = api.thngService();
     }
 
