@@ -89,4 +89,27 @@ public class EvrythngSensorRepositoryTest {
         assertThat(result.getId(), is("1"));
         assertThat(result.getValue(), is("mock"));
     }
+
+    @Test
+    public void testGetSensor() throws Exception {
+        when(thngService.thngReader("1")).thenReturn(thngBuilder);
+        when(thngBuilder.execute()).thenReturn(MockThngBuilder.getThng());
+        Optional<Thng> thng = sensorRepository.getSensor("1");
+
+        assertTrue(thng.isPresent());
+
+        Thng result = thng.get();
+
+        assertThat(result.getId(), is("1"));
+        assertThat(result.getName(), is("Mock"));
+    }
+
+    @Test
+    public void testGetSensorNullResponse() throws Exception {
+        when(thngService.thngReader("1")).thenReturn(thngBuilder);
+        when(thngBuilder.execute()).thenReturn(null);
+        Optional<Thng> thng = sensorRepository.getSensor("1");
+
+        assertFalse(thng.isPresent());
+    }
 }
