@@ -1,4 +1,4 @@
-package com.github.mgt6.weatherstation.repository.impl;
+package com.github.mgt6.weatherstation.repository.impl.evrythng;
 
 import com.evrythng.java.wrapper.ApiManager;
 import com.evrythng.java.wrapper.exception.EvrythngException;

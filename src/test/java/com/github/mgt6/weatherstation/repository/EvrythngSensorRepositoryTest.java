@@ -5,7 +5,7 @@ import com.evrythng.java.wrapper.core.EvrythngApiBuilder.Builder;
 import com.evrythng.java.wrapper.service.ThngService;
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.mock.MockThngBuilder;
-import com.github.mgt6.weatherstation.repository.impl.EvrythngSensorRepository;
+import com.github.mgt6.weatherstation.repository.impl.evrythng.EvrythngSensorRepository;
 import org.junit.Before;
 import org.junit.Test;
 
