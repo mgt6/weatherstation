@@ -2,14 +2,34 @@ package com.github.mgt6.weatherstation.repository.impl.mock;
 
 import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
+import com.github.mgt6.weatherstation.domain.PropertyBuilder;
 import com.github.mgt6.weatherstation.domain.ThngBuilder;
 import com.github.mgt6.weatherstation.repository.SensorRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class MockSensorRepository implements SensorRepository {
+
+    private static Map<String, Map<String, String>> properties = new HashMap<String, Map<String, String>>();
+    private static Map<String, String> rainSensorProperties = new HashMap<String, String>();
+    private static Map<String, String> windSensorProperties = new HashMap<String, String>();
+    private static Map<String, String> temperatureSensorProperties = new HashMap<String, String>();
+
+    static {
+
+        rainSensorProperties.put("type", "rainfall");
+        rainSensorProperties.put("rainfall", "0.0");
+
+        windSensorProperties.put("type", "windspeed");
+        windSensorProperties.put("windspeed", "0.9");
+
+        temperatureSensorProperties.put("type", "temperature");
+        temperatureSensorProperties.put("temperature", "22.1");
+
+        properties.put("UdqcgxtgsB5RAnybdxC6BHsc", rainSensorProperties);
+        properties.put("Ud6yDyFTsVpaGNFEDaCN5nPg", windSensorProperties);
+        properties.put("UdqyXcUqPBpRf5qM7KVHQpkm", temperatureSensorProperties);
+    }
 
     @Override
     public Optional<List<Thng>> getSensors() {
@@ -37,7 +57,11 @@ public class MockSensorRepository implements SensorRepository {
 
     @Override
     public Optional<Property> getLatestPropertyReading(String thngId, String propertyName) {
-        return null;
+        Optional<Property> property = Optional.empty();
+        if (properties.containsKey(thngId) && properties.get(thngId).containsKey(propertyName)) {
+            return Optional.of(new PropertyBuilder().withId("2").withKey(propertyName).withValue(properties.get(thngId).get(propertyName)).build());
+        }
+        return property;
     }
 
 }
