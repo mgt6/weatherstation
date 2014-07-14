@@ -4,7 +4,7 @@ import com.evrythng.java.wrapper.ApiManager;
 import com.evrythng.java.wrapper.core.EvrythngApiBuilder.Builder;
 import com.evrythng.java.wrapper.service.ThngService;
 import com.evrythng.thng.resource.model.store.Thng;
-import com.github.mgt6.weatherstation.domain.ThngBuilder;
+import com.github.mgt6.weatherstation.mock.MockThngBuilder;
 import com.github.mgt6.weatherstation.repository.impl.EvrythngSensorRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,9 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,7 +40,7 @@ public class EvrythngSensorRepositoryTest {
     public void testGetSensors() throws Exception {
         when(thngService.thngsReader()).thenReturn(thngBuilder);
         when(thngBuilder.list()).thenReturn(thngResult);
-        when(thngResult.getResult()).thenReturn(getMockThngs());
+        when(thngResult.getResult()).thenReturn(MockThngBuilder.getMockThngs());
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
 
         assertTrue(thngs.isPresent());
@@ -67,13 +65,5 @@ public class EvrythngSensorRepositoryTest {
         when(thngResult.getResult()).thenReturn(null);
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
         assertFalse(thngs.isPresent());
-    }
-
-
-
-    private List<Thng> getMockThngs(){
-        List<Thng> thngs = new ArrayList<Thng>();
-        thngs.add(new ThngBuilder().withId("1").withDescription("Mock Thng").withName("Mock").withProduct("mockProduct").withProperty("type", "mock").build());
-        return thngs;
     }
 }
