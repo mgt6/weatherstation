@@ -19,7 +19,12 @@ public class BeanConfig {
     }
 
     @Bean
-    public SensorRepository evrythngSensorRepository() {
+    public SensorRepository mockSensorRepository() {
         return new MockSensorRepository();
     }
+
+    /*@Bean
+    public SensorRepository evrythngSensorRepository() {
+        return new EvrythngSensorRepository(new ApiManager("K6UxIsthLqChs6uc97SmZIEdiTHycaNiibDGSuyBox4RraMCzno3DZYWR5n6bmnJN0cAmZF12jFoZWlG"));
+    }*/
 }

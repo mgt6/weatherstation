@@ -17,8 +17,13 @@ public class EvrythngSensorRepository implements SensorRepository {
 
     Logger LOGGER = LoggerFactory.getLogger(EvrythngSensorRepository.class);
 
-    private ApiManager api = new ApiManager("K6UxIsthLqChs6uc97SmZIEdiTHycaNiibDGSuyBox4RraMCzno3DZYWR5n6bmnJN0cAmZF12jFoZWlG");
-    private ThngService thngService = api.thngService();
+    private ApiManager api;
+    private ThngService thngService;
+
+    public EvrythngSensorRepository(ApiManager api) {
+        this.api = api;
+        thngService = api.thngService();
+    }
 
     public Optional<List<Thng>> getSensors(){
         Optional<List<Thng>> results = Optional.empty();
@@ -48,9 +53,5 @@ public class EvrythngSensorRepository implements SensorRepository {
             LOGGER.error("Error getting response from Evrythng: " + e.getMessage());
         }
         return results;
-    }
-
-    public void setApi(ApiManager api) {
-        this.api = api;
     }
 }
