@@ -3,13 +3,18 @@ package com.github.mgt6.weatherstation.repository;
 import com.evrythng.java.wrapper.ApiManager;
 import com.evrythng.java.wrapper.core.EvrythngApiBuilder.Builder;
 import com.evrythng.java.wrapper.service.ThngService;
+import com.evrythng.thng.resource.model.store.Property;
 import com.evrythng.thng.resource.model.store.Thng;
+import com.github.mgt6.weatherstation.mock.MockPropertyBuilder;
 import com.github.mgt6.weatherstation.mock.MockThngBuilder;
 import com.github.mgt6.weatherstation.repository.impl.evrythng.EvrythngSensorRepository;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,12 +33,19 @@ public class EvrythngSensorRepositoryTest {
 
     private Builder thngBuilder = mock(Builder.class);
 
+    private Builder propertyBuilder = mock(Builder.class);
+
     private Builder.Result thngResult = mock(Builder.Result.class);
 
     @Before
     public void setUp() throws Exception {
         when(api.thngService()).thenReturn(thngService);
         sensorRepository = new EvrythngSensorRepository(api);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        Mockito.reset(thngBuilder, propertyBuilder, thngResult);
     }
 
     @Test
@@ -65,5 +77,16 @@ public class EvrythngSensorRepositoryTest {
         when(thngResult.getResult()).thenReturn(null);
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
         assertFalse(thngs.isPresent());
+    }
+
+    @Test
+    public void testGetProperty() throws Exception {
+        when(thngService.propertyReader("1", "type")).thenReturn(propertyBuilder);
+        when(propertyBuilder.execute()).thenReturn(Arrays.asList(MockPropertyBuilder.getMockProperty()));
+        Optional<Property> property = sensorRepository.getLatestPropertyReading("1", "type");
+        assertTrue(property.isPresent());
+        Property result = property.get();
+        assertThat(result.getId(), is("1"));
+        assertThat(result.getValue(), is("mock"));
     }
 }
