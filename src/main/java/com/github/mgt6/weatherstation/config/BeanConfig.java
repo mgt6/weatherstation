@@ -1,7 +1,8 @@
 package com.github.mgt6.weatherstation.config;
 
 
-import com.github.mgt6.weatherstation.repository.EvrythngSensorRepository;
+import com.github.mgt6.weatherstation.repository.SensorRepository;
+import com.github.mgt6.weatherstation.repository.impl.mock.MockSensorRepository;
 import com.github.mgt6.weatherstation.service.SensorService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ public class BeanConfig {
     }
 
     @Bean
-    public EvrythngSensorRepository evrythngSensorRepository() {
-        return new EvrythngSensorRepository();
+    public SensorRepository evrythngSensorRepository() {
+        return new MockSensorRepository();
     }
 }

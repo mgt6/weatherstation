@@ -2,7 +2,7 @@ package com.github.mgt6.weatherstation.service;
 
 import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.dto.SensorDto;
-import com.github.mgt6.weatherstation.repository.EvrythngSensorRepository;
+import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class SensorService {
 
     @Autowired
-    private EvrythngSensorRepository sensorRepository;
+    private SensorRepository sensorRepository;
 
     public List<SensorDto> getSensors() {
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
