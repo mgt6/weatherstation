@@ -23,11 +23,11 @@ public class EvrythngSensorRepository implements SensorRepository {
         thngService = api.thngService();
     }
 
-    public Optional<List<Thng>> getSensors(){
+    public Optional<List<Thng>> getSensors() {
         Optional<List<Thng>> results = Optional.empty();
         try {
             List<Thng> thngs = thngService.thngsReader().list().getResult();
-            if(thngs != null && !thngs.isEmpty()) {
+            if (thngs != null && !thngs.isEmpty()) {
                 results = Optional.of(thngs);
             }
         } catch (EvrythngException e) {
@@ -41,7 +41,7 @@ public class EvrythngSensorRepository implements SensorRepository {
         Optional<Property> property = Optional.empty();
         try {
             List<Property> properties = thngService.propertyReader(thngId, propertyName).execute();
-            if(properties != null && ! properties.isEmpty()) {
+            if (properties != null && !properties.isEmpty()) {
                 property = Optional.of(properties.get(0));
             }
         } catch (EvrythngException e) {
@@ -52,6 +52,14 @@ public class EvrythngSensorRepository implements SensorRepository {
 
     @Override
     public Optional<Thng> getSensor(String sensorId) {
-        return null;
+        Optional<Thng> thng = Optional.empty();
+
+        try {
+            thng = Optional.of(thngService.thngReader(sensorId).execute());
+        } catch (EvrythngException e) {
+            e.printStackTrace();
+        }
+        return thng;
+
     }
 }
