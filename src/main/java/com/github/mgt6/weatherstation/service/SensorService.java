@@ -15,6 +15,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * A sensor service which makes calls to the Repository and return the results as models.
@@ -40,9 +41,7 @@ public class SensorService {
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
         List<SensorDto> sensors = new ArrayList<>();
         if(thngs.isPresent()) {
-            for (Thng thng : thngs.get()) {
-                sensors.add(new SensorDto(thng.getId(), thng.getName(), thng.getDescription()));
-            }
+            sensors.addAll(thngs.get().stream().map(thng -> new SensorDto(thng.getId(), thng.getName(), thng.getDescription())).collect(Collectors.toList()));
         }
         return sensors;
     }
