@@ -12,7 +12,7 @@ public class MockWindSensor {
 
     public static Thng thng;
 
-    public static Map<String, Property> properties = new HashMap<String, Property>();
+    public static Map<String, Property> properties = new HashMap<>();
 
     static {
 

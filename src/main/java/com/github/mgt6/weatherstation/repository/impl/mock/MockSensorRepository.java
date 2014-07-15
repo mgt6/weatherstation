@@ -12,8 +12,8 @@ import java.util.*;
 
 public class MockSensorRepository implements SensorRepository {
 
-    private static Map<String, Map<String, Property>> properties = new HashMap<String, Map<String, Property>>();
-    private static Map<String, Thng> thngsMap = new HashMap<String, Thng>();
+    private static Map<String, Map<String, Property>> properties = new HashMap<>();
+    private static Map<String, Thng> thngsMap = new HashMap<>();
 
     static {
 
@@ -29,7 +29,7 @@ public class MockSensorRepository implements SensorRepository {
 
     @Override
     public Optional<List<Thng>> getSensors() {
-        List<Thng> thngs = new ArrayList<Thng>();
+        List<Thng> thngs = new ArrayList<>();
         for (String id : thngsMap.keySet()) {
             thngs.add(thngsMap.get(id));
         }
@@ -51,7 +51,7 @@ public class MockSensorRepository implements SensorRepository {
     @Override
     public Optional<List<Property>> getAllProperties(String thngId, String propertyName) {
         if (properties.containsKey(thngId) && properties.containsKey(propertyName)) {
-            List<Property> sensorProperties = new ArrayList<Property>();
+            List<Property> sensorProperties = new ArrayList<>();
             return Optional.of(sensorProperties);
         }
         return Optional.empty();

@@ -22,7 +22,7 @@ public class SensorService {
 
     public List<SensorDto> getSensors() {
         Optional<List<Thng>> thngs = sensorRepository.getSensors();
-        List<SensorDto> sensors = new ArrayList<SensorDto>();
+        List<SensorDto> sensors = new ArrayList<>();
         if(thngs.isPresent()) {
             for (Thng thng : thngs.get()) {
                 sensors.add(new SensorDto(thng.getId(), thng.getName(), thng.getDescription()));
