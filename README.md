@@ -7,7 +7,7 @@ To run this application simply run the Application class, this contains the main
  
  It should be possible to run mvn clean install to generate an Uber Jar, however I am currently having a few problems with that.
  
- The application runs on port 8080 on the location machine so you should be able to connect to [a href="127.0.0.1:8080"](127.0.0.1:8080) once the application has started.
+ The application runs on port 8080 on the location machine so you should be able to connect to [127.0.0.1:8080](127.0.0.1:8080) once the application has started.
  
  To access there is a button in the top right to of the home page to access the main application, where you will be prompted for a username and password. user and password are the current configured defaults for this.
  
