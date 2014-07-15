@@ -12,7 +12,7 @@ import java.util.*;
 
 public class MockSensorRepository implements SensorRepository {
 
-    private static Map<String, Map<String, Property>> properties = new HashMap<>();
+    private static Map<String, Map<String, List<Property>>> properties = new HashMap<>();
     private static Map<String, Thng> thngsMap = new HashMap<>();
 
     static {
@@ -39,9 +39,9 @@ public class MockSensorRepository implements SensorRepository {
     @Override
     public Optional<Property> getLatestPropertyReading(String thngId, String propertyName) {
         if (properties.containsKey(thngId)) {
-            Map<String, Property> sensorProperties = properties.get(thngId);
+            Map<String, List<Property>> sensorProperties = properties.get(thngId);
             if (sensorProperties.containsKey(propertyName)) {
-                Property property = sensorProperties.get(propertyName);
+                Property property = sensorProperties.get(propertyName).iterator().next();
                 return Optional.of(new PropertyBuilder().withId(property.getId()).withKey(property.getKey()).withValue(property.getValue()).build());
             }
         }
@@ -51,7 +51,7 @@ public class MockSensorRepository implements SensorRepository {
     @Override
     public Optional<List<Property>> getAllProperties(String thngId, String propertyName) {
         if (properties.containsKey(thngId) && properties.containsKey(propertyName)) {
-            List<Property> sensorProperties = new ArrayList<>();
+            List<Property> sensorProperties = properties.get(thngId).get(propertyName);
             return Optional.of(sensorProperties);
         }
         return Optional.empty();

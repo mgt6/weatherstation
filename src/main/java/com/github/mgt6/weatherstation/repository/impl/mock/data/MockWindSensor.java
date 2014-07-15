@@ -5,14 +5,16 @@ import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.domain.PropertyBuilder;
 import com.github.mgt6.weatherstation.domain.ThngBuilder;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MockWindSensor {
 
     public static Thng thng;
 
-    public static Map<String, Property> properties = new HashMap<>();
+    public static Map<String, List<Property>> properties = new HashMap<>();
 
     static {
 
@@ -23,7 +25,7 @@ public class MockWindSensor {
                 .withProperty("windspeed", "0.9")
                 .build();
 
-        properties.put("type", new PropertyBuilder().withId("1").withKey("type").withValue("windspeed").build());
-        properties.put("windspeed", new PropertyBuilder().withId("2").withKey("windspeed").withValue("0.9").build());
+        properties.put("type", Arrays.asList(new PropertyBuilder().withId("1").withKey("type").withValue("windspeed").build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("2").withKey("windspeed").withValue("0.9").build()));
     }
 }
