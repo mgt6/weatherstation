@@ -55,7 +55,7 @@ public class SensorService {
         throw new ResourceNotFoundException();
     }
 
-    public List<SensorReadingDto> getProperties(String sensorId) {
+    public List<SensorReadingDto> getSensorReadings(String sensorId) {
         Optional<Property> typeField = sensorRepository.getLatestPropertyReading(sensorId, READING_TYPE_FIELD);
         List<SensorReadingDto> readings = new ArrayList<>();
         if(typeField.isPresent()) {
