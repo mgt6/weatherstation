@@ -28,5 +28,15 @@ public class MockWindSensor {
 
         properties.put("type", Arrays.asList(new PropertyBuilder().withId("1").withKey("type").withValue("windspeed").withTimeStamp(LocalDateTime.now().minusDays(5)).build()));
         properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("2").withKey("windspeed").withValue("0.9").withTimeStamp(LocalDateTime.now()).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("1.3").withTimeStamp(LocalDateTime.now().plusMinutes(1)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("1.4").withTimeStamp(LocalDateTime.now().plusMinutes(2)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("1.2").withTimeStamp(LocalDateTime.now().plusMinutes(3)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.8").withTimeStamp(LocalDateTime.now().plusMinutes(4)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.8").withTimeStamp(LocalDateTime.now().plusMinutes(5)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.6").withTimeStamp(LocalDateTime.now().plusMinutes(6)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.3").withTimeStamp(LocalDateTime.now().plusMinutes(7)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.3").withTimeStamp(LocalDateTime.now().plusMinutes(8)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.2").withTimeStamp(LocalDateTime.now().plusMinutes(9)).build()));
+        properties.put("windspeed", Arrays.asList(new PropertyBuilder().withId("3").withKey("windspeed").withValue("0.1").withTimeStamp(LocalDateTime.now().plusMinutes(10)).build()));
     }
 }

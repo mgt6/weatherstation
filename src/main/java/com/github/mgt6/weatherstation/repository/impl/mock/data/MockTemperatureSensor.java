@@ -28,6 +28,38 @@ public class MockTemperatureSensor {
 
         properties.put("type", Arrays.asList(new PropertyBuilder().withId("1").withKey("type").withValue("temperature").withTimeStamp(LocalDateTime.now().minusDays(5)).build()));
         properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("2").withKey("temperature").withValue("22.1").withTimeStamp(LocalDateTime.now()).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("3").withKey("temperature").withValue("22.1").withTimeStamp(LocalDateTime.now().plusMinutes(5)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("4").withKey("temperature").withValue("22.2").withTimeStamp(LocalDateTime.now().plusMinutes(10)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("5").withKey("temperature").withValue("22.3").withTimeStamp(LocalDateTime.now().plusMinutes(15)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("6").withKey("temperature").withValue("22.4").withTimeStamp(LocalDateTime.now().plusMinutes(20)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("7").withKey("temperature").withValue("22.5").withTimeStamp(LocalDateTime.now().plusMinutes(25)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("8").withKey("temperature").withValue("22.5").withTimeStamp(LocalDateTime.now().plusMinutes(30)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("9").withKey("temperature").withValue("22.7").withTimeStamp(LocalDateTime.now().plusMinutes(35)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("10").withKey("temperature").withValue("22.8").withTimeStamp(LocalDateTime.now().plusMinutes(40)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("11").withKey("temperature").withValue("23.1").withTimeStamp(LocalDateTime.now().plusMinutes(45)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("12").withKey("temperature").withValue("23.5").withTimeStamp(LocalDateTime.now().plusMinutes(50)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("13").withKey("temperature").withValue("23.8").withTimeStamp(LocalDateTime.now().plusMinutes(55)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("14").withKey("temperature").withValue("24.1").withTimeStamp(LocalDateTime.now().plusMinutes(60)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("15").withKey("temperature").withValue("24.2").withTimeStamp(LocalDateTime.now().plusMinutes(65)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("16").withKey("temperature").withValue("24.3").withTimeStamp(LocalDateTime.now().plusMinutes(70)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("17").withKey("temperature").withValue("24.4").withTimeStamp(LocalDateTime.now().plusMinutes(75)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("18").withKey("temperature").withValue("24.7").withTimeStamp(LocalDateTime.now().plusMinutes(80)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("19").withKey("temperature").withValue("24.9").withTimeStamp(LocalDateTime.now().plusMinutes(85)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("20").withKey("temperature").withValue("25.1").withTimeStamp(LocalDateTime.now().plusMinutes(90)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("21").withKey("temperature").withValue("25.0").withTimeStamp(LocalDateTime.now().plusMinutes(95)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("22").withKey("temperature").withValue("25.1").withTimeStamp(LocalDateTime.now().plusMinutes(100)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("23").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(105)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("24").withKey("temperature").withValue("25.1").withTimeStamp(LocalDateTime.now().plusMinutes(110)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("25").withKey("temperature").withValue("25.1").withTimeStamp(LocalDateTime.now().plusMinutes(115)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("26").withKey("temperature").withValue("25.3").withTimeStamp(LocalDateTime.now().plusMinutes(120)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("27").withKey("temperature").withValue("25.1").withTimeStamp(LocalDateTime.now().plusMinutes(125)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("28").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(130)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("29").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(135)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("30").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(140)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("31").withKey("temperature").withValue("25.3").withTimeStamp(LocalDateTime.now().plusMinutes(145)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("32").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(150)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("33").withKey("temperature").withValue("25.2").withTimeStamp(LocalDateTime.now().plusMinutes(155)).build()));
+        properties.put("temperature", Arrays.asList(new PropertyBuilder().withId("34").withKey("temperature").withValue("25.3").withTimeStamp(LocalDateTime.now().plusMinutes(160)).build()));
     }
 
 }
