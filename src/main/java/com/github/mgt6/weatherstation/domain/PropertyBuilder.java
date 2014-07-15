@@ -2,6 +2,10 @@ package com.github.mgt6.weatherstation.domain;
 
 import com.evrythng.thng.resource.model.store.Property;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
 public class PropertyBuilder {
 
     /**
@@ -18,6 +22,11 @@ public class PropertyBuilder {
      * The value held within this property.
      */
     private String value;
+
+    /**
+     * The time and date that the property was set.
+     */
+    private long timeStamp;
 
     /**
      * Sets the id of the property to create.
@@ -52,11 +61,30 @@ public class PropertyBuilder {
         return this;
     }
 
+    /**
+     * Sets the time that the property was set, the time is converted into a long value representing milliseconds since the Epoch.
+     *
+     * @param time The time to set.
+     * @return This builder for chaining.
+     */
+    public PropertyBuilder withTimeStamp(LocalDateTime time) {
+        ZonedDateTime zdt = time.atZone(ZoneId.systemDefault());
+        timeStamp = zdt.toInstant().toEpochMilli();
+        return this;
+    }
+
+    public PropertyBuilder withTimeStamp(long time) {
+        this.timeStamp = time;
+        return this;
+    }
+
     public Property build() {
         Property property = new Property();
         property.setId(id);
         property.setKey(key);
         property.setValue(value);
+        property.setTimestamp(timeStamp);
+        property.setCreatedAt(timeStamp);
         return property;
     }
 }

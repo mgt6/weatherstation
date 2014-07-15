@@ -42,7 +42,7 @@ public class MockSensorRepository implements SensorRepository {
             Map<String, List<Property>> sensorProperties = properties.get(thngId);
             if (sensorProperties.containsKey(propertyName)) {
                 Property property = sensorProperties.get(propertyName).iterator().next();
-                return Optional.of(new PropertyBuilder().withId(property.getId()).withKey(property.getKey()).withValue(property.getValue()).build());
+                return Optional.of(new PropertyBuilder().withId(property.getId()).withKey(property.getKey()).withValue(property.getValue()).withTimeStamp(property.getTimestamp()).build());
             }
         }
         return Optional.empty();

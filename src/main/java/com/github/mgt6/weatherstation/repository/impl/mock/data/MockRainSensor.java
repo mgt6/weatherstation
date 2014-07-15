@@ -6,6 +6,7 @@ import com.evrythng.thng.resource.model.store.Thng;
 import com.github.mgt6.weatherstation.domain.PropertyBuilder;
 import com.github.mgt6.weatherstation.domain.ThngBuilder;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +27,7 @@ public class MockRainSensor {
                 .withProperty("rainfall", "0.0")
                 .build();
 
-        properties.put("type", Arrays.asList(new PropertyBuilder().withId("1").withKey("type").withValue("rainfall").build()));
-        properties.put("rainfall", Arrays.asList(new PropertyBuilder().withId("1").withKey("rainfall").withValue("0.0").build()));
+        properties.put("type", Arrays.asList(new PropertyBuilder().withId("1").withKey("type").withValue("rainfall").withTimeStamp(LocalDateTime.now().minusDays(5)).build()));
+        properties.put("rainfall", Arrays.asList(new PropertyBuilder().withId("1").withKey("rainfall").withValue("0.0").withTimeStamp(LocalDateTime.now()).build()));
     }
 }

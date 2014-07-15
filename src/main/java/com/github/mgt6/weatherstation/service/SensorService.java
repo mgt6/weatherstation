@@ -52,7 +52,7 @@ public class SensorService {
 
             if(readingField.isPresent()) {
                 Property reading = readingField.get();
-                LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getCreatedAt()), ZoneId.systemDefault());
+                LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getTimestamp()), ZoneId.systemDefault());
                 return new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId(), time);
             }
         }
@@ -67,7 +67,7 @@ public class SensorService {
             Optional<List<Property>> properties = sensorRepository.getAllProperties(sensorId, typeProperty.getValue());
             if(properties.isPresent() && !properties.get().isEmpty()) {
                 for (Property reading : properties.get()) {
-                    LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getCreatedAt()), ZoneId.systemDefault());
+                    LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getTimestamp()), ZoneId.systemDefault());
                     readings.add(new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId(), time));
                 }
             }
