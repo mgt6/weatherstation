@@ -45,25 +45,29 @@
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
-            <h2><p th:text="${sensor.name}" /></h2>
-            <p th:text="${sensor.description}" />
-            <div class="reading">
-                <p>Current Reading is: <span th:text="${reading.value}" /></p>
-                <p>Taken: <span th:text="${reading.readingDate}" /></p>
-            </div>
+            <h2><p th:text="${sensor.name}"/></h2>
+            <p th:text="${sensor.description}"/>
 
-            <table>
-                <th>
+            <div class="reading">
+                <p>Current Reading is: <span th:text="${reading.value}"/></p>
+
+                <p>Taken: <span th:text="${reading.readingDate}"/></p>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+
                     <tr>
                         <td>Value</td>
                         <td>Date/Time</td>
                     </tr>
-                </th>
-                <tr th:each="reading : ${readings}">
-                    <td><p th:text="${reading.value}" /></td>
-                    <td><p th:text="${reading.readingDate}" /></td>
-                </tr>
-            </table>
+                    </thead>
+                    <tr th:each="reading : ${readings}">
+                        <td><p th:text="${reading.value}"/></td>
+                        <td><p th:text="${reading.readingDate}"/></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
