@@ -1,18 +1,23 @@
 package com.github.mgt6.weatherstation.dto;
 
 
+import java.time.LocalDateTime;
+
 public class SensorReadingDto {
+
     private String key;
     private String value;
     private String sensorId;
     private String id;
+    private LocalDateTime readingDate;
 
 
-    public SensorReadingDto(String key, String value, String sensorId, String id) {
+    public SensorReadingDto(String key, String value, String sensorId, String id, LocalDateTime readingDate) {
         this.key = key;
         this.value = value;
         this.sensorId = sensorId;
         this.id = id;
+        this.readingDate = readingDate;
     }
 
     public String getKey() {
@@ -29,5 +34,9 @@ public class SensorReadingDto {
 
     public String getId() {
         return id;
+    }
+
+    public LocalDateTime getReadingDate() {
+        return readingDate;
     }
 }

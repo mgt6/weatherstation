@@ -9,6 +9,9 @@ import com.github.mgt6.weatherstation.repository.SensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -49,7 +52,8 @@ public class SensorService {
 
             if(readingField.isPresent()) {
                 Property reading = readingField.get();
-                return new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId());
+                LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getCreatedAt()), ZoneId.systemDefault());
+                return new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId(), time);
             }
         }
         throw new ResourceNotFoundException();
@@ -62,8 +66,9 @@ public class SensorService {
             Property typeProperty = typeField.get();
             Optional<List<Property>> properties = sensorRepository.getAllProperties(sensorId, typeProperty.getValue());
             if(properties.isPresent() && !properties.get().isEmpty()) {
-                for (Property property : properties.get()) {
-                    readings.add(new SensorReadingDto(property.getKey(), property.getValue(), sensorId, property.getId()));
+                for (Property reading : properties.get()) {
+                    LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(reading.getCreatedAt()), ZoneId.systemDefault());
+                    readings.add(new SensorReadingDto(reading.getKey(), reading.getValue(), sensorId, reading.getId(), time));
                 }
             }
         }

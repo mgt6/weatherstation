@@ -25,6 +25,7 @@ public class WeatherStationController {
     public String reading(@PathVariable String id, String name, Model model) {
         model.addAttribute("sensor", sensorService.getSensor(id));
         model.addAttribute("reading", sensorService.getLatestSensorReading(id));
+        model.addAttribute("readings", sensorService.getSensorReadings(id));
         return "sensor";
     }
 }
