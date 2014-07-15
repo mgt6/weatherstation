@@ -55,6 +55,21 @@ public class SensorService {
         throw new ResourceNotFoundException();
     }
 
+    public List<SensorReadingDto> getProperties(String sensorId) {
+        Optional<Property> typeField = sensorRepository.getLatestPropertyReading(sensorId, READING_TYPE_FIELD);
+        List<SensorReadingDto> readings = new ArrayList<>();
+        if(typeField.isPresent()) {
+            Property typeProperty = typeField.get();
+            Optional<List<Property>> properties = sensorRepository.getAllProperties(sensorId, typeProperty.getValue());
+            if(properties.isPresent() && !properties.get().isEmpty()) {
+                for (Property property : properties.get()) {
+                    readings.add(new SensorReadingDto(property.getKey(), property.getValue(), sensorId, property.getId()));
+                }
+            }
+        }
+        return readings;
+    }
+
     @Required
     public void setSensorRepository(SensorRepository sensorRepository) {
         this.sensorRepository = sensorRepository;
