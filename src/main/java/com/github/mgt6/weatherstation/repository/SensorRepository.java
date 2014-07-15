@@ -26,6 +26,16 @@ public interface SensorRepository {
     Optional<Property> getLatestPropertyReading(String thngId, String propertyName);
 
     /**
+     * Method to get all of the properties with a given name. This will return all of the properties with that name as they have
+     * changed over time.
+     *
+     * @param thngId The id of the {@link com.evrythng.thng.resource.model.store.Thng} with the properties to get.
+     * @param propertyName The name of the {@link com.evrythng.thng.resource.model.store.Property} to get from the {@link com.evrythng.thng.resource.model.store.Thng}
+     * @return An Optional value that will contain either a populated {@link List} of {@link Property properties} or it will be empty
+     */
+    Optional<List<Property>> getAllProperties(String thngId, String propertyName);
+
+    /**
      * Method to get a single sensor identified by its Id.
      *
      * @param sensorId The id of the sensor to get.

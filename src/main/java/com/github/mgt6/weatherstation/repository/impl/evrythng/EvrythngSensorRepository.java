@@ -51,6 +51,20 @@ public class EvrythngSensorRepository implements SensorRepository {
     }
 
     @Override
+    public Optional<List<Property>> getAllProperties(String thngId, String propertyName) {
+        Optional<List<Property>> properties = Optional.empty();
+        try {
+            List<Property> results = thngService.propertyReader(thngId, propertyName).execute();
+            if(results != null && !results.isEmpty()) {
+                properties = Optional.of(results);
+            }
+        } catch (EvrythngException e) {
+            e.printStackTrace();
+        }
+        return properties;
+    }
+
+    @Override
     public Optional<Thng> getSensor(String sensorId) {
         Optional<Thng> thng = Optional.empty();
 

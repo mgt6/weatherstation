@@ -49,6 +49,15 @@ public class MockSensorRepository implements SensorRepository {
     }
 
     @Override
+    public Optional<List<Property>> getAllProperties(String thngId, String propertyName) {
+        if (properties.containsKey(thngId) && properties.containsKey(propertyName)) {
+            List<Property> sensorProperties = new ArrayList<Property>();
+            return Optional.of(sensorProperties);
+        }
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<Thng> getSensor(String sensorId) {
         if (thngsMap.containsKey(sensorId)) {
             return Optional.of(thngsMap.get(sensorId));
