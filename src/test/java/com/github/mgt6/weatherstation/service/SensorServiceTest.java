@@ -23,7 +23,6 @@ import static org.mockito.Mockito.when;
 
 public class SensorServiceTest {
 
-
     SensorService sensorService = new SensorService();
 
     SensorRepository sensorRepository = mock(SensorRepository.class);

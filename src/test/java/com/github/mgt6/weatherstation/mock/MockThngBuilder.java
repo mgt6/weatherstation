@@ -13,7 +13,7 @@ public class MockThngBuilder {
     }
 
     public static List<Thng> getMockThngs(){
-        List<Thng> thngs = new ArrayList<Thng>();
+        List<Thng> thngs = new ArrayList<>();
         thngs.add(MockThngBuilder.getThng());
         return thngs;
     }
