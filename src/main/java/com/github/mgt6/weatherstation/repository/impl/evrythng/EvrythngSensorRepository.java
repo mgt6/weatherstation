@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Optional;
 
-
 public class EvrythngSensorRepository implements SensorRepository {
 
     Logger LOGGER = LoggerFactory.getLogger(EvrythngSensorRepository.class);
