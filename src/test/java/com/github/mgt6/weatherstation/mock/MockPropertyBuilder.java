@@ -18,6 +18,7 @@ public class MockPropertyBuilder {
         property.setId("2");
         property.setKey("mock");
         property.setValue("0.00");
+        property.setTimestamp(0l);
         return property;
     }
 }
