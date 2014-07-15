@@ -27,7 +27,7 @@ Complete
 ####Story 4
 As a user I want to view all the readings for an individual sensor for a given time period so that I can view the change over time
 
-ToDo
+Complete
 
 ####Story 5
 As a user I want to view the latest reading from an individual sensor in real time so that I can monitor the current measurement.

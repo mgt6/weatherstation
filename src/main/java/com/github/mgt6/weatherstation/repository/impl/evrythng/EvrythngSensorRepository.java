@@ -12,16 +12,30 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * An implementation of {SensorRepository} using the Evrything Java Wrapper.
+ */
 public class EvrythngSensorRepository implements SensorRepository {
 
+    /**
+     * Logger to record any errors.
+     */
     Logger LOGGER = LoggerFactory.getLogger(EvrythngSensorRepository.class);
 
+    /**
+     * The service to use to get the data from.
+     */
     private ThngService thngService;
 
+    /**
+     * Creates a new instance of the Repository from an {@link ApiManager}.
+     * @param api The manager used to connect to the {@link ThngService}
+     */
     public EvrythngSensorRepository(ApiManager api) {
         thngService = api.thngService();
     }
 
+    @Override
     public Optional<List<Thng>> getSensors() {
         Optional<List<Thng>> results = Optional.empty();
         try {

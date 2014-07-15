@@ -6,6 +6,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+/**
+ * Builder class to create {@link Property} objects.
+ */
 public class PropertyBuilder {
 
     /**
@@ -73,11 +76,22 @@ public class PropertyBuilder {
         return this;
     }
 
+    /**
+     * Sets the timestamp as a raw long value.
+     *
+     * @param time The time to set.
+     * @return This builder for chaining.
+     */
     public PropertyBuilder withTimeStamp(long time) {
         this.timeStamp = time;
         return this;
     }
 
+    /**
+     * Creates a new {@link Property} object with the values set in this builder.
+     *
+     * @return a new Property object.
+     */
     public Property build() {
         Property property = new Property();
         property.setId(id);

@@ -1,12 +1,24 @@
 package com.github.mgt6.weatherstation.dto;
 
+/**
+ * Basic Sensor Model to return to the view.
+ */
 public class SensorDto {
 
-    public String id;
+    /**
+     * The Id of the sensor
+     */
+    private String id;
 
-    public String name;
+    /**
+     * The name of the Sensor.
+     */
+    private String name;
 
-    public String description;
+    /**
+     * The description of the Sensor
+     */
+    private String description;
 
     public SensorDto(String id, String name, String description) {
         this.id = id;
@@ -14,11 +26,15 @@ public class SensorDto {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "SensorDto{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

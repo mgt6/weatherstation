@@ -10,6 +10,15 @@ import com.github.mgt6.weatherstation.repository.impl.mock.data.MockWindSensor;
 
 import java.util.*;
 
+/**
+ * An implementation of {@link SensorRepository} which uses mock data from:
+ * <ul>
+ *     <li>{@link MockRainSensor}</li>
+ *     <li>{@link MockWindSensor}</li>
+ *     <li>{@link MockTemperatureSensor}</li>
+ * </ul>
+ *
+ */
 public class MockSensorRepository implements SensorRepository {
 
     private static Map<String, Map<String, List<Property>>> properties = new HashMap<>();

@@ -6,6 +6,9 @@ import com.evrythng.thng.resource.model.store.Thng;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * An interface for any repository that will return sensor data.
+ */
 public interface SensorRepository {
 
     /**

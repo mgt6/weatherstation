@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class to create mock Thng objects.
+ * Class to create Thng objects.
  */
 public class ThngBuilder {
 
@@ -33,7 +33,7 @@ public class ThngBuilder {
     /**
      * A list of properties associated with this Thng.
      */
-    private Map<String, String> properties = new HashMap<String, String>();
+    private Map<String, String> properties = new HashMap<>();
 
     /**
      * Sets the id of this Thng.

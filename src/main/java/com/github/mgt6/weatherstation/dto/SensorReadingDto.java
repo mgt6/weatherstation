@@ -1,16 +1,36 @@
 package com.github.mgt6.weatherstation.dto;
 
-
 import java.time.LocalDateTime;
 
+/**
+ * Basic class representing a sensor reading model.
+ */
 public class SensorReadingDto {
 
-    private String key;
-    private String value;
-    private String sensorId;
+    /**
+     * The id of this reading.
+     */
     private String id;
-    private LocalDateTime readingDate;
 
+    /**
+     * The name of the field
+     */
+    private String key;
+
+    /**
+     * The value held in the field.
+     */
+    private String value;
+
+    /**
+     * The id of the sensor that this reading comes from.
+     */
+    private String sensorId;
+
+    /**
+     * The date and time this reading was taken
+     */
+    private LocalDateTime readingDate;
 
     public SensorReadingDto(String key, String value, String sensorId, String id, LocalDateTime readingDate) {
         this.key = key;
