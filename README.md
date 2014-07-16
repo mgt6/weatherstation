@@ -47,4 +47,21 @@ Complete
 As a user I want to view the latest reading from an individual sensor in real time so that I can monitor the current measurement.
 
 Deferred
+
+
+
+####Thoughts On My test
+
++ Type should have been a custom field not a property
++ I should have included a metric e.g. m/s degrees C 
++ Another application might have made better use of the Everythng API/Core concepts, for example Football Cards 2.0, scan the cards to get the latest statistics of that player, more information etc Integrate with Social Media to arrange swaps with friends, Unlock badges for completing a team, collecting them all.  
+
+####Thoughts on the API
+
++ Rest API looks good Uses standard REST Verbs and behaves as expected. 
++ Some More examples would be great.
++ Java API I found a little hard to use with fairly difficult concepts.
++ I wasn't that keen on the Returned builders and having to use the execute command.
++ Could use some extra documentation around certain areas, e.g. how Thng Properties work, Map of String to String doesn't fit with having multiple properties with the same name.
++ Again more Examples would be great.
  
