@@ -60,6 +60,7 @@ Deferred
 
 + Rest API looks good Uses standard REST Verbs and behaves as expected. 
 + Some More examples would be great.
++ How is it versioned?
 + Java API I found a little hard to use with fairly difficult concepts.
 + I wasn't that keen on the Returned builders and having to use the execute command.
 + Could use some extra documentation around certain areas, e.g. how Thng Properties work, Map of String to String doesn't fit with having multiple properties with the same name.
